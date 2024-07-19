@@ -1,0 +1,238 @@
+:root {
+    --lato: "Lato", sans-serif;
+    --russo-one: "Russo One", sans-serif;
+    --w-container: 1440px;
+    --accent-color: #F658BA;
+    --light-color: #fffafd;
+    --dark-color: #000000;
+    --dark-color-rgb: 0, 0, 0;
+    --tr: .2s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+    block-size: 100%;
+  }
+
+html, body {
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset,
+nav {
+    margin: 0;
+    padding: 0;
+    }
+
+a {
+    text-decoration: none;
+ }
+
+body {
+    font-family: var(--lato);
+    background-color: #B32B70;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--w-container);
+    background-color: var(--light-color);
+    margin: 0 auto;
+    padding-left: clamp(15px, 3vw, 75px);
+    padding-right: clamp(15px, 3vw, 75px);
+    border-radius: 16px;
+    border: 6px solid #FFFFFF;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.header__logo {
+    display: block;
+    width: 200px;
+    height: 61px;
+    background-image: url(../images/logo.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header__nav {
+    display: flex;
+    gap: 50px; /* Можно использовать функцию clamp() для адаптивки */
+}
+
+.header__link {
+    font-size: 18px;
+    color: rgba(var(--dark-color-rgb), 0.75);
+    letter-spacing: 3.15px;
+    text-transform: lowercase;
+    transition: var(--tr);
+}
+
+.header__link:hover {
+    color: var(--accent-color);
+}
+
+.main {
+    position: relative;
+}
+
+.main__img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.main__title {
+    color: rgba(var(--dark-color-rgb), 0.75);
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 4.2px;
+    text-transform: uppercase;
+    max-height: 270px;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    margin: 0;
+    writing-mode: vertical-lr;
+}
+
+._lines {
+    top: clamp(20px, 3vw, 85px);;
+}
+
+._barbie {
+    bottom: 0;
+    height: clamp(750px, 50vw, 920px);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    grid-template-areas: 'a .' 'c b';
+    align-items: center;
+    gap: clamp(20px, 3vw, 80px);
+    padding-top: clamp(50px, 10vw, 180px);
+    padding-bottom: clamp(30px, 5vw, 120px);
+}
+
+.grid__title {
+    color: var(--accent-color);
+    font-family: var(--russo-one);
+    font-size: 80px;
+    font-weight: 400;
+    letter-spacing: 5.6px;
+    text-transform: lowercase;
+    margin-top: 0;
+    margin-bottom: 26px;
+}
+
+.grid__description {
+    color: rgba(var(--dark-color-rgb), 0.75);
+    font-family: var(--lato);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 171%;
+    letter-spacing: 1.96px;
+    text-transform: uppercase;
+}
+
+.grid__item:nth-child(1) {
+    grid-area: a;
+}
+
+.grid__item:nth-child(2) {
+    grid-area: b;
+    justify-self: end;
+ 
+}
+
+.grid__item:nth-child(3) {
+    grid-area: c;
+    align-self: end;
+    padding-bottom: 28px;
+}
+
+.grid__item:nth-child(1) .grid__description {
+    max-width: 338px;
+}
+
+.grid__item:nth-child(2) .grid__description {
+    max-width: 316px;
+}
+
+.grid__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 318px;
+    gap: 34px;
+    color: var(--dark-color);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%; /* 30px */
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    background-color: #FFFFFF;
+    padding: 30px 0;
+    border-radius: 40px;
+    box-shadow: 0px 0px 40px 0px rgba(var(--dark-color-rgb), 0.13);
+}
+
+.grid__link::after {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 24px;
+    background-image: url(../images/arrow.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (max-height: 1100px){
+    .header {
+        padding-bottom: 0px;
+    }
+
+    .grid {
+        gap: clamp(20px, 5vh, 50px);
+        padding-top: clamp(50px, 7vh, 80px);
+        padding-bottom: clamp(30px, 4vh, 50px);
+    }
+
+    ._barbie {
+        bottom: 0;
+        height: clamp(650px, 70vh, 750px);
+    }
+
+    ._lines {
+        top: -2vh;
+        height: clamp(500px, 63vh, 554px);
+    }
+}
